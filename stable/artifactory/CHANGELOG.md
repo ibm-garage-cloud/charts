@@ -1,6 +1,9 @@
 # JFrog Artifactory Chart Changelog
 All changes to this chart will be documented in this file.
 
+## [11.4.5] - Nov 4, 2020
+* Add excludeSecurityContext flag to remove securityContext block from artifactory statefulset
+
 ## [11.4.4] - Nov 2, 2020
 * Add enablePathStyleAccess property for aws-s3-v3 binary provider template
 
