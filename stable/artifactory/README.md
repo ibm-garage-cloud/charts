@@ -1154,6 +1154,18 @@ helm upgrade --install artifactory --namespace artifactory --set fluentd.enabled
 
 This will install Artifactory with Fluentd running as a sidecar container sharing the persistent volume where the log files are written.
 
+### Disabling the securityContext for the Artifactory StatefulSet
+
+By default, the Artifactory StatefulSet is created with a securityContext that sets the `runAsUser` and the `fsGroup` to
+the `artifactory.uid` value. In some environments (particularly OpenShift) this causes problems or requires additional 
+security escalation. If you would like to remove the securityContext block from the container set the `excludeSecurityContext` 
+value to `true`. E.g.
+
+```yaml
+artifactory:
+  excludeSecurityContext: true
+``` 
+
 ## Useful links
 - https://www.jfrog.com/confluence/display/EP/Getting+Started
 - https://www.jfrog.com/confluence/display/RTF/Installing+Artifactory
